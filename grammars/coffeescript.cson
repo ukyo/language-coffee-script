@@ -1,5 +1,5 @@
-'scopeName': 'source.coffee'
-'name': 'CoffeeScript'
+'scopeName': 'source.coffee.angular'
+'name': 'CoffeeScript (Angular.js)'
 'fileTypes': [
   'coffee'
   'Cakefile'
@@ -33,6 +33,20 @@
         'name': 'entity.name.type.instance.coffee'
     'match': '(new)\\s+(((class)(\\s+(\\w+(?:\\.\\w*)*))?)|(\\w+(?:\\.\\w*)*))'
     'name': 'meta.class.instance.constructor'
+  }
+  {
+    'begin': '(.*[tT]emplate)\\s*[:=]\\s*("""|\'\'\')'
+    'beginCaptures':
+      '1':
+        'name': 'variable.assignment.coffee'
+      '2':
+        'name': 'string.quoted.heredoc.coffee punctuation.definition.string.begin.coffee'
+    'end': '(\\2)'
+    'endCaptures':
+      '0':
+        'name': 'string.quoted.heredoc.coffee punctuation.definition.string.end.coffee'
+    'patterns':
+      'include': 'text.html.basic'
   }
   {
     'begin': '\'\'\''
