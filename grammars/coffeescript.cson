@@ -45,8 +45,12 @@
     'endCaptures':
       '0':
         'name': 'string.quoted.heredoc.coffee punctuation.definition.string.end.coffee'
-    'patterns':
-      'include': 'text.html.basic'
+    'contentName': 'source.html.basic'
+    'patterns': [
+      {
+        'include': 'text.html.basic'
+      }
+    ]
   }
   {
     'begin': '\'\'\''
