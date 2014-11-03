@@ -83,9 +83,211 @@
   'Create Jasmine spy':
     'prefix': 'spy',
     'body': 'jasmine.createSpy(\'${1:description}\')$2'
-  'ngm':
-    'prefix': 'ngm'
-    'body': 'angular.module \'$1\' [$2]'
+
+  "module":
+    "prefix": "ngm"
+    "body": "angular.module('$1', [$2])$3"
+  "module as variable":
+    "prefix": "ngma"
+    "body": "$1 = angular.module('$2', [$3])$4"
+  "module with config":
+    "prefix": "ngmc"
+    "body": """
+      $1 = angular.module '$2', [$3], ($4) ->
+        $5
+    """
+  "module factory":
+    "prefix": "ngmfa"
+    "body": """
+      .factory '$1', ($2) ->
+        $3
+    """
+  "module filter":
+    "prefix": "ngmfi"
+    "body": """
+      .filter '$1', ($2) ->
+        (input, $3) ->
+          $4
+    """
+  "module service":
+    "prefix": "ngms"
+    "body": """
+      .service '$1', ($2) ->
+        $3
+    """
+  "$routeProvider.otherwise":
+    "prefix": "ngro"
+    "body": """
+      $routeProvider.otherwise {redirectTo: '$1' }
+    """
+  "$routeProvider.when":
+    "prefix": "ngrw"
+    "body": """
+      $routeProvider.when '$1', {templateUrl: '$2', controller: '$3'}
+    """
+  "$routeProvider.when with resolve":
+    "prefix": "ngrwr"
+    "body": """
+      $routeProvider.when '$1',
+        templateUrl: '$2'
+        controller: '$3'${4:
+        resolve:
+          $5}
+    """
+  "angular forEach":
+    "prefix": "ngfor"
+    "body": """
+      angular.forEach $1, (value, key) ->
+        $2
+    """
+  "directive":
+    "prefix": "ngd"
+    "body": """
+
+    """
+  "directive include link function":
+    "prefix": "ngdl"
+    "body": """
+      .directive '$1', ($2) ->
+        $3
+        (scope, element, attrs) ->
+          $4
+    """
+  "linking func of directive":
+    "prefix": "ngdlf"
+    "body": """
+      (scope, element, attrs) ->
+        $1
+    """
+  "directive include compile function":
+    "prefix": "ngdc"
+    "body": """
+      .directive '$1', ($2) ->
+        compile: (tElement, tAttrs, transclude) ->
+          (scope, element, attrs) ->
+            $3
+    """
+  "compile function":
+    "prefix": "ngdcf"
+    "body": """
+      (tElement, tAttrs, transclude) ->
+        (scope, element, attrs) ->
+          $1
+    """
+  "$scope.$broadcast":
+    "prefix": "ngb"
+    "body": """
+      $scope.$broadcast '$1', $2
+    """
+  "$scope.$emit":
+    "prefix": "nge"
+    "body": """
+      $scope.$emit '', $1
+    """
+  "function inside $scope":
+    "prefix": "ngf"
+    "body": """
+      $scope.$1 = ($2) ->
+        $3
+    """
+  "controller prototype method":
+    "prefix": "ngcp"
+    "body": """
+      $1Ctrl::$2 = ($2) ->
+        $3
+    """
+  "$scope.$on":
+    "prefix": "ngon"
+    "body": """
+      $scope.$on '$1', (event, $2) =>
+        $3
+    """
+  "variable inside $scope":
+    "prefix": "ngv"
+    "body": """
+      $scope.$1 = $2
+    """
+  "$scope.$watch":
+    "prefix": "ngw"
+    "body": """
+      $scope.$watch '$1', (newValue, oldValue) =>
+        $2
+    """
+  "controller":
+    "prefix": "ngc"
+    "body": """
+      $1 = ($scope, $2) ->
+        $3
+    """
+  "controller $inject Syntax":
+    "prefix": "ngc$"
+    "body": """
+      class $1Ctrl
+        @$inject = ['$scope', '$2']
+        constructor: (@$scope, @$2) ->
+          $4
+      angular.module($3).controller '$1Ctrl', $1Ctrl
+    """
+  "ngdocs comment":
+    "prefix": "ngdoc"
+    "body": """
+      ###*
+       * @ngdoc ${1:function}
+       * @name $2
+       * @description
+       * $3
+       *
+       ###
+    """
+  "$http":
+    "prefix": "nghttp"
+    "body": """
+      $http
+        method: '${1:GET}'
+        url: '$2'
+      .success (data, status, headers, config) ->
+        $3
+      .error (data, status, headers, config) ->
+        $4
+    """
+  "copy":
+    "prefix": "ngcopy"
+    "body": """
+      angular.copy ${1:source} ${2:, ${3:destination}}
+    """
+  "element":
+    "prefix": 'ngel'
+    "body": "angular.element(${1:element})$2"
+  "equals":
+    "prefix": "ngeq"
+    "body": "angular.equals ${1:object1}, ${2:object2}"
+  "extend":
+    "prefix": "ngext"
+    "body": "angular.extend(${1:destinationObject}, ${2:sourceObject})$3"
+  "isArray":
+    "prefix": "ngisa"
+    "body": "angular.isArray ${1:value}"
+  "isDefined":
+    "prefix": "ngisd"
+    "body": "angular.isDefined ${1:value}"
+  "isFunction":
+    "prefix": "ngisf"
+    "body": "angular.isFunction ${1:value}"
+  "isNumber":
+    "prefix": "ngisn"
+    "body": "angular.isNumber ${1:value}"
+  "isObject":
+    "prefix": "ngiso"
+    "body": "angular.isObject ${1:value}"
+  "isString":
+    "prefix": "ngiss"
+    "body": "angular.isString ${1:value}"
+  "lowercase":
+    "prefix": "nglo"
+    "body": "angular.lowercase(${1:string})$2"
+  "uppercase":
+    "prefix": "ngup"
+    "body": "angular.uppercase(${1:string})$2"
 '.string.quoted.double.coffee:not(.string .source), .string.quoted.double.heredoc.coffee:not(.string .source)':
   'Interpolated Code':
     'prefix': '#'
