@@ -45,7 +45,7 @@
     'endCaptures':
       '0':
         'name': 'string.quoted.heredoc.coffee punctuation.definition.string.end.coffee'
-    'contentName': 'source.html.basic'
+    'contentName': 'text.html'
     'patterns': [
       {
         'include': 'text.html.basic'
