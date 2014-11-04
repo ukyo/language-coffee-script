@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "2.1.1",
   "name": "language-coffee-script-angular",
   "description": "CoffeeScript language support in Atom for Angular Developers",
   "license": "MIT",
