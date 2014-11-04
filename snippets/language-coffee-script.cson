@@ -143,7 +143,24 @@
   "directive":
     "prefix": "ngd"
     "body": """
-
+      .directive '$1', ($2) ->
+        restrict: '${3:ECMA}'
+        require: ['${4:^ngModel'}]
+        scope: ${5:false}
+        priority: ${6:0}
+        replace: ${7:false}
+        transclude: ${8:false}
+        template: '''
+          $9
+        '''
+        templateUrl: '$10.html'
+        compile: (tElement, tAttrs, transclude) ->
+          ($scope, $element, $attrs, ctrls) ->
+            $11
+        link: ($scope, $element, $attrs, ctrls) ->
+          $12
+        controller: ($scope, $element, $attrs, $transclude) ->
+          $13
     """
   "directive include link function":
     "prefix": "ngdl"
