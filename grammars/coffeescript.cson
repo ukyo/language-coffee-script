@@ -50,6 +50,9 @@
       {
         'include': 'text.html.basic'
       }
+      {
+        'include': 'text.html.basic.angularjs'
+      }
     ]
   }
   {
